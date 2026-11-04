@@ -14,7 +14,7 @@
 /* Keep the same circular frame, with a closer portrait crop. */
 .profile-avatar{display:block;width:175px;max-width:100%;aspect-ratio:1;border:1px solid #f2f3f3;border-radius:50%;padding:5px;overflow:hidden;position:relative}
 .profile-avatar .avatar-crop{width:100%;height:100%;border-radius:50%;overflow:hidden}
-.profile-avatar .profile-photo{display:block;width:100%;height:100%;max-width:none;aspect-ratio:1;border:0;padding:0;margin:0;object-fit:cover;object-position:50% 15%;border-radius:0;transform:translate(var(--avatar-x,0%),var(--avatar-y,2.7%)) scale(var(--avatar-zoom,1.18));transform-origin:50% 50%}
+.profile-avatar .profile-photo{display:block;width:100%;height:100%;max-width:none;aspect-ratio:1;border:0;padding:0;margin:0;object-fit:cover;object-position:50% 15%;border-radius:0;transform:translate(var(--avatar-x,2.5%),var(--avatar-y,1%)) scale(var(--avatar-zoom,1.03));transform-origin:50% 50%}
 @media(max-width:767px){.profile-avatar{width:100px}}
 
 .avatar-editor{position:fixed;right:18px;bottom:18px;z-index:50;width:340px;max-width:calc(100vw - 32px);max-height:55vh;overflow:auto;padding:20px;background:white;color:#494e52;border:1px solid #d8dce0;border-radius:10px;box-shadow:0 6px 28px #0002;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
@@ -79,19 +79,19 @@
 <h2>头像调整</h2>
 <p>拖动滑块实时预览。保存仅对当前浏览器生效；复制参数发给我后，可同步到全站。</p>
 <label for="avatar-zoom">放大比例<output id="avatar-zoom-value"></output></label>
-<input id="avatar-zoom" type="range" min="1" max="1.8" step="0.01" value="1.18"/>
+<input id="avatar-zoom" type="range" min="1" max="1.8" step="0.01" value="1.03"/>
 <label for="avatar-x">左右位置<output id="avatar-x-value"></output></label>
-<input id="avatar-x" type="range" min="-30" max="30" step="0.5" value="0"/>
+<input id="avatar-x" type="range" min="-30" max="30" step="0.5" value="2.5"/>
 <label for="avatar-y">上下位置<output id="avatar-y-value"></output></label>
-<input id="avatar-y" type="range" min="-30" max="30" step="0.5" value="2.5"/>
+<input id="avatar-y" type="range" min="-30" max="30" step="0.5" value="1"/>
 <div class="avatar-actions"><button class="primary" id="avatar-save" type="button">保存本机</button><button id="avatar-copy" type="button">复制参数</button><button id="avatar-reset" type="button">恢复默认</button></div>
 <textarea id="avatar-settings" aria-label="头像参数" readonly></textarea>
 <p class="avatar-status" id="avatar-status" role="status" aria-live="polite"></p>
 </aside>
 <script>
 (() => {
-  const defaults = {zoom:1.18,x:0,y:2.5};
-  const key = 'tianyi-avatar-settings-v1';
+  const defaults = {zoom:1.03,x:2.5,y:1};
+  const key = 'tianyi-avatar-settings-v2';
   function valid(v) {
     return v && Number.isFinite(v.zoom) && v.zoom >= 1 && v.zoom <= 1.8 &&
       Number.isFinite(v.x) && Math.abs(v.x) <= 30 &&
